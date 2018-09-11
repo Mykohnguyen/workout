@@ -1,0 +1,20 @@
+<form (submit)="updateWorkout($event)">
+<div class="table-responsive" *ngIf="_workout">
+  <table class="table table-striped">
+        <thead>
+            <th> Exercise</th>
+            <th> Set</th>
+            <th> Reps</th> 
+            <th> lbs</th> 
+        </thead>
+        <tr *ngFor="let workout of _workout.workout;let index = index;trackBy:trackByFunction">
+          <input type="hidden" name="name" [value]="workout.name">
+          <td> {{workout.name}}</td>
+          <td><input type="number" name="set" [value]="workout.set" ></td>
+          <td><input type="number" name="rep" [value]="workout.rep"></td>
+          <td><input type="number" name="pounds" [value]="workout.pounds"></td>
+        </tr>
+        <button> Update</button>
+    </table>
+  </div>
+</form>

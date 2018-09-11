@@ -1,0 +1,11 @@
+<div class="left">
+  <div *ngIf="_allWorkout">
+    <div *ngFor="let workout of _allWorkout">
+      <a [routerLink]="['/updateprogram/workout',workout._id]">{{workout.date | date: "MMM dd,yyyy"}}</a>
+    </div>
+  </div>
+</div>
+<div class="right">
+  <router-outlet></router-outlet>
+</div>
+

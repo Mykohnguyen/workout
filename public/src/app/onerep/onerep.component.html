@@ -1,0 +1,23 @@
+<div id="exercise" *ngIf="_selectedWorkout">
+  <table class="table table-striped table-dark " style="color:white">
+    <tr *ngFor="let exercise of _selectedWorkout.workout" (click)="selectedExercise(exercise.name)">
+      <td>{{exercise.name}}</td>
+    </tr>
+  </table>
+</div>
+<div id="chart">
+  <canvas id="lineChart" style="display:inline-block;height:70%;width:100%"></canvas>
+  <div class="previous">
+    <table class='table table-striped'>
+      <thead>
+        <th>Date</th>
+        <th>Pounds</th>
+      </thead>
+      <tr *ngFor="let exercise of singleArray">
+        <td>{{exercise.date | date:"MMM dd, yyyy"}}</td>
+        <td>{{exercise.pound}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,12 @@
+<form (submit)="onFormSubmit()">
+  name:<input type="text" name="name" [(ngModel)]="newUser.name"><br>
+  email:<input type="email" name="email" [(ngModel)]="newUser.email"><br>
+  password:<input type="password" name="password" [(ngModel)]="newUser.password"><br>
+  confirm_password:<input type="password" name="confirm_password"><br>
+  <button> Register</button>
+</form> 
+<form (submit)="onLogin(user)">
+  email:<input type="email" name="email" [(ngModel)]="_user.email"><br>
+  password:<input type="password" name="password" [(ngModel)]="_user.password"><br>
+  <button (click)="sendEmail(_user.email)">Login</button>
+</form>

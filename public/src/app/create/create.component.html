@@ -1,0 +1,19 @@
+<form (submit)="onExerciseFormSubmit()">
+  name:<br>
+  <input type="text" name="name" [(ngModel)]="_newExercise.name"/><br>
+  muscle_group:<br>
+    <input type="text" name="shoulder" [(ngModel)]="_newExercise.muscle_group[0]"><br><br>
+    <input type="text" name="temp" [(ngModel)]="_newExercise.muscle_group[1]"><br>
+    <br>
+    <input type="text" name="temp2" [(ngModel)]="_newExercise.muscle_group[2]"><br><br>
+    <input type="text" name="temp2" [(ngModel)]="_newExercise.muscle_group[3]"><br><br>
+  push_pull:<br>
+  <input type="text" name="push_pull" [(ngModel)]="_newExercise.push_pull"/><br>
+  <button> Submit</button>
+</form>
+
+<table class="table">
+  <tr *ngFor="let i of _rows"> 
+    <td *ngFor="let x of _columns"><input type="number" name="reps" placeholder="number of reps done"></td>
+  </tr>
+</table>

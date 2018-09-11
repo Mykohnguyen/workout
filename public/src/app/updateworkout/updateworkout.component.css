@@ -1,0 +1,23 @@
+.table-dark-bg{
+}
+input{
+    border:1px solid silver;
+}
+table th td {
+    border:1px solid sandybrown;
+}
+table{
+    width:100%;
+    height:100%;
+}
+form{
+    width:100%;
+    height:100%;
+}
+.chicken{
+    height:80%;
+    width: 100%;
+    top:10%;
+    z-index: 1;
+}
+

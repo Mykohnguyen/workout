@@ -1,0 +1,17 @@
+<div class="left">
+  <div id="nav">
+    <div id="workouts">
+      <table class="table table-striped table-dark">
+        <tr *ngFor="let workout of _workouts">
+          <td><a [routerLink]="['/stats',workout._id]" (click)="showList()">{{workout.date | date: "MMM dd, yyyy"}}</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="right">
+  <div *ngIf="_list == true">
+      <router-outlet></router-outlet>
+  </div>
+</div>
+  <!-- <canvas id="lineChart"></canvas> -->
