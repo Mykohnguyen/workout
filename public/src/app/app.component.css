@@ -2,6 +2,11 @@
     font-family:customfont;
     src: url(../assets/static/GASMASK_.TTF);
 }
+a{
+    color:white;
+    font-style:oblique;
+    font-family:customfont;
+}
 .header{
     width:100%;
     height:97px;
@@ -12,27 +17,6 @@
 .bg-company-black{
     background-color:#3e3e3e;
 }
-/* .footer{
-    height:101px;
-    width:100%;
-    position:fixed;
-    bottom:0;
-    background:#3e3e3e;
-    left:0;
-    border-top:5px solid sandybrown;
-} */
-/* p{
-    margin:auto;
-    padding:50px;
-    font-size:52pt;
-    font-style: oblique;
-    font-family:customfont;
-} */
-a{
-    color:white;
-    font-style:oblique;
-    font-family:customfont;
-}
 #content{
     right:0;
     height:80%;
@@ -40,5 +24,4 @@ a{
     width:70%;
     z-index:1;
     overflow-x:hidden;
-    
 }

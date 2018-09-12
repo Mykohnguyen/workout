@@ -15,9 +15,7 @@ export class CreateworkoutComponent implements OnInit {
   _arms=false;
   _muscle: any;
   _addedExercises = [];
-  _email : any;
-  _editting = false;
-  _edittedExercises:any;
+  _email = "me@me.com";
 
   constructor(private _httpService: HttpService,private _route: ActivatedRoute, private _router: Router){}
   invoked(event){
@@ -27,9 +25,6 @@ export class CreateworkoutComponent implements OnInit {
   ngOnInit() {
     this._route.params.subscribe((params: Params) => console.log(params['id']));
     this._bodyimage= 'assets/static/blank_figure.png';
-    let e = this._httpService.subscribeToEmitter();
-    this._email = this._httpService.getEmail();
-    this._edittedExercises={name:"",sets:0,reps:0}
     }
   //Clicking to highlight the body part
   clickChest(){
@@ -104,7 +99,7 @@ export class CreateworkoutComponent implements OnInit {
   formatWorkout(){
       let observable = this._httpService.newWorkout(this._addedExercises,this._email);
       observable.subscribe(data=>{
-        this._router.navigate(['/home'])
+        this._router.navigate(['/updateprogram'])
       })
   }
   removeFromList(exercise){

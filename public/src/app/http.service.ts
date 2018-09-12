@@ -6,20 +6,8 @@ import { EventEmitter } from 'events';
   providedIn: 'root'
 })
 export class HttpService {
-  t:any;
+
   constructor(private _http: HttpClient){}
-  emailEmitter = new EventEmitter();
-  subscribeToEmitter(){
-    return this.emailEmitter;
-  }
-  emailSend(email){
-    this.t=email;
-    console.log(email,"htp service")
-    this.emailEmitter.emit(email);
-  }
-  getEmail(){
-    return this.t;
-  }
   getExercises(muscle){
     return this._http.get('api/exercises/'+ muscle);
   }
@@ -35,13 +23,6 @@ export class HttpService {
   removeExercise(exercise){
     return this._http.post('api/exercise/remove/'+ exercise._id,exercise);
   }
-  registerUser(user){
-    console.log("service",user);
-    return this._http.post('api/user/new',user)
-  }
-  loginUser(user){
-    return this._http.post('api/user/login',user)
-  }
   newWorkout(exercises,email){
     return this._http.post('api/workout/new/'+email,exercises)
   }
@@ -52,7 +33,6 @@ export class HttpService {
     return this._http.get('api/user/workoutplan/'+id, id)
   }
   updateWorkout(workout,id){
-    console.log(workout,id)
     return this._http.post('api/user/workout/update/'+id,workout)
   }
 }

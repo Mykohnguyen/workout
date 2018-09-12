@@ -1,8 +1,11 @@
 <div class="left">
   <div *ngIf="_allWorkout">
-    <div *ngFor="let workout of _allWorkout">
-      <a [routerLink]="['/updateprogram/workout',workout._id]">{{workout.date | date: "MMM dd,yyyy"}}</a>
-    </div>
+    <table class="table table-striped table-dark">
+      <tr *ngFor="let workout of _allWorkout">
+        <td> <a [routerLink]="['/updateprogram/workout',workout._id]">{{workout.date | date: "MMM dd,yyyy"}}</a>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
 <div class="right">

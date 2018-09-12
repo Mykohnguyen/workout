@@ -38,8 +38,6 @@ export class OnerepComponent implements OnInit {
     for(var i = 0; i  < this._allWorkouts.length ; i++){
       for(var x = 0 ; x < this._allWorkouts[i].workout.length ; x++){
         if(this._allWorkouts[i].workout[x].name == exercise){
-        //   test.push(this._allWorkouts[i].workout[x].value)
-          console.log(this._allWorkouts[i].workout[x].name,this._allWorkouts[i].workout[x].pounds)
           pounds.push(this._allWorkouts[i].workout[x].pounds);
           test.push(this._allWorkouts[i].workout[x].pounds*this._allWorkouts[i].workout[x].rep*.033+this._allWorkouts[i].workout[x].pounds)
           dates.push(this._allWorkouts[i].date)
@@ -48,7 +46,7 @@ export class OnerepComponent implements OnInit {
     }
     this.exerciseData = test;
     this.exerciseDate=dates;
-    this.exercisePound = pounds;
+    this.exercisePound =pounds;
     this.drawChart();
     this.joinArray();
   }
@@ -58,10 +56,10 @@ export class OnerepComponent implements OnInit {
       test.push({
         date:this.exerciseDate[i],
         pound:this.exercisePound[i]
+
       })
     }
     this.singleArray = test;
-    console.log(this.singleArray);
   }
   drawChart(){
     let pipe = new DatePipe('en-US')

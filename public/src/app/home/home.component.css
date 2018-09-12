@@ -1,4 +1,4 @@
-/* Split the screen in half */
+
 @font-face{
   font-family:customfont;
   src: url(/assets/static/GASMASK_.TTF);
@@ -7,36 +7,33 @@ span{
   display:inline-block;
   color:grey;
 }
-  /* Control the left side */
+  /*======================================
+    Left  Side
+  ============================*/
   .left {
     left: 0;
     height: 90%;
     width: 70%;
     position: fixed;
     z-index: 1;
-    /* top: 0; */
     overflow-x: hidden;
     background:url("/assets/static/jogging.png");
     background-size:cover;
   }
-  /* Control the right side */
+  /*======================================
+  Right Side
+  ============================*/
   .right {
     right: 0;
     height: 90%;
     width: 30%;
     position: fixed;
     z-index: 1;
-    /* top: 0; */
     overflow-x: hidden;
-    background-color: cornsilk;
   }
-  #menu {
-    text-align:center;
-    font-size:24pt;
-    position:fixed;
-    top:50%;
-    transform: translateY(-50%);
-  }
+  /*======================================
+
+  ============================*/
   .quote{
     height:200px;
     text-align:center;

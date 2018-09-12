@@ -18,14 +18,11 @@ export class CreateComponent implements OnInit {
     this._newExercise={name:"",muscle_group:[],push_pull:""}
   }
   onExerciseFormSubmit(muscle_group){
-    console.log(this._newExercise.muscle_group);
     if(this._newExercise.muscle_group.shoulder == true){
       this._newExercise.muscle_group.push("Shoulder")
     }
-    console.log(this._newExercise)
     let observable = this._httpService.addExercise(this._newExercise)
     observable.subscribe(data=>{
-      // console.log(data);
     })
   }
 

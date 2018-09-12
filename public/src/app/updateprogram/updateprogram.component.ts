@@ -9,11 +9,10 @@ import { ActivatedRoute, Params, Router } from '@angular/router'
 })
 export class UpdateprogramComponent implements OnInit {
   _allWorkout:any;
-  _email:any;
+  _email= "me@me.com"
   constructor(private _httpService: HttpService,private _route: ActivatedRoute, private _router: Router) { }
 
   ngOnInit() {
-    this._email = this._httpService.getEmail();
     this.getWorkouts();
   }
 
@@ -21,10 +20,6 @@ export class UpdateprogramComponent implements OnInit {
     let observable=this._httpService.getWorkouts();
     observable.subscribe(data=>{
       this._allWorkout=data;
-      console.log(this._allWorkout);
     })
-  }
-  updateWorkout(){
-    
   }
 }
