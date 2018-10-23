@@ -18,7 +18,7 @@ span{
     z-index: 1;
     overflow-x: hidden;
     background:url("/assets/static/jogging.png");
-    background-size:cover;
+    background-size:100% 100%;
   }
   /*======================================
   Right Side
@@ -31,14 +31,17 @@ span{
     z-index: 1;
     overflow-x: hidden;
   }
-  /*======================================
-
-  ============================*/
   .quote{
-    height:200px;
+    height:90%;
     text-align:center;
     position: relative;
-    top:33%;
-    font-size:24pt;
+    top:25%;
+    font-size:22pt;
     font-family:customfont;
+  }
+
+  @media all and (max-width:450px){
+    .quote{
+      font-size:12pt;
+    }
   }

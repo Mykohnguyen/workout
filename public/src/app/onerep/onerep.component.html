@@ -1,4 +1,4 @@
-<div id="exercise" *ngIf="_selectedWorkout">
+<div class="exercise" *ngIf="_selectedWorkout">
   <table class="table table-striped table-dark " style="color:white">
     <tr *ngFor="let exercise of _selectedWorkout.workout" (click)="selectedExercise(exercise.name)">
       <td>{{exercise.name}}</td>

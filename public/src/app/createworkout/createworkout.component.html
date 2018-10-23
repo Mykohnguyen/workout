@@ -1,47 +1,75 @@
-<div class="middle">
-  <div id="header">
-    <button type="button" class="btn btn-secondary" (mouseenter)="clickChest()" (click)="clickChest()"  (click)="muscleToShow('Chest')">Chest</button>
-    <button type="button" class="btn btn-secondary" (mouseenter)="clickBack()" (click)="clickBack()" (click)="muscleToShow('Back')">Back</button>
-    <button type="button" class="btn btn-secondary" (click)="clickShoulder()" (click)="muscleToShow('Shoulder')">Shoulder</button>
-    <button type="button" class="btn btn-secondary"   (click)="clickLegs()" (click)="muscleToShow('Legs')">Leg</button>
-    <button type="button" class="btn btn-secondary" (click)="clickArm()" (click)="muscleToShow('Arms')">Arms</button>
-    <button type="button" class="btn btn-secondary" (click)="clickAbs()" (click)="muscleToShow('Abs')">Abs</button>
-  </div>
-  <div id="submenu">
-    <div *ngIf="_leg==true" class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-secondary" (click)="clickHamstring()" (click)="muscleToShow('Hamstring')">Hamstring</button>
-      <button type="button" class="btn btn-secondary" (click)="clickGlutes()" (click)="muscleToShow('Glutes')">Glutes</button>
-      <button type="button" class="btn btn-secondary" (click)="clickQuadriceps()" (click)="muscleToShow('Quadriceps')">Quadriceps</button>
-      <button type="button" class="btn btn-secondary" (click)="clickCalf()" (click)="muscleToShow('Calf')">Calf</button>
+<div class="container">
+  <div class="middle overflow">
+
+    <div id="header">
+      <button type="button" class="btn btn-secondary" (mouseenter)="clickChest()" (click)="clickChest()"  (click)="muscleToShow('Chest')">Chest</button>
+      <button type="button" class="btn btn-secondary" (mouseenter)="clickBack()" (click)="clickBack()" (click)="muscleToShow('Back')">Back</button>
+      <button type="button" class="btn btn-secondary" (click)="clickShoulder()" (click)="muscleToShow('Shoulder')">Shoulder</button>
+      <button type="button" class="btn btn-secondary"   (click)="clickLegs()" (click)="muscleToShow('Legs')">Leg</button>
+      <button type="button" class="btn btn-secondary" (click)="clickArm()" (click)="muscleToShow('Arms')">Arms</button>
+      <button type="button" class="btn btn-secondary" (click)="clickAbs()" (click)="muscleToShow('Abs')">Abs</button>
     </div>
-    <div *ngIf="_shoulder==true" id="shoulder">
-      <button type="button" class="btn btn-secondary" (click)="clickTrap()" (click)="muscleToShow('Trapezius(Traps)')">Trapezius(Trap)</button>
-      <button type="button" class="btn btn-secondary" (click)="clickDeltoid()" (click)="muscleToShow('Deltoid')">Deltoid</button>
+
+    <div id="submenu">
+      <div *ngIf="_leg==true" class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" (click)="clickHamstring()" (click)="muscleToShow('Hamstring')">Hamstring</button>
+        <button type="button" class="btn btn-secondary" (click)="clickGlutes()" (click)="muscleToShow('Glutes')">Glutes</button>
+        <button type="button" class="btn btn-secondary" (click)="clickQuadriceps()" (click)="muscleToShow('Quadriceps')">Quadriceps</button>
+        <button type="button" class="btn btn-secondary" (click)="clickCalf()" (click)="muscleToShow('Calf')">Calf</button>
+      </div>
+      <div *ngIf="_shoulder==true" id="shoulder">
+        <button type="button" class="btn btn-secondary" (click)="clickTrap()" (click)="muscleToShow('Trapezius(Traps)')">Trapezius(Trap)</button>
+        <button type="button" class="btn btn-secondary" (click)="clickDeltoid()" (click)="muscleToShow('Deltoid')">Deltoid</button>
+      </div>
+      <div *ngIf="_arms==true" id="arms">
+        <button type="button" class="btn btn-secondary" (click)="clickBicep()"  (click)="muscleToShow('Bicep')"> Bicep</button>
+        <button type="button" class="btn btn-secondary" (click)="clickTricep()" (click)="muscleToShow('Tricep')"> Tricep</button>
+      </div>
     </div>
-    <div *ngIf="_arms==true" id="arms">
-      <button type="button" class="btn btn-secondary" (click)="clickBicep()"  (click)="muscleToShow('Bicep')"> Bicep</button>
-      <button type="button" class="btn btn-secondary" (click)="clickTricep()" (click)="muscleToShow('Tricep')"> Tricep</button>
-    </div>
-  </div>
+
     <div id="body">
       <img id="bodyimage" [src]="_bodyimage">
     </div>
-</div>
-<div class="left">
-  <div id="exerciselist">
-    <app-exercises  [listOfExercises]="_muscle" (myEvent)="invoked($event)"></app-exercises>
+  <div class="bottom_exerciselist">
+      <div id="exerciselist">
+        <app-exercises  [listOfExercises]="_muscle" (myEvent)="invoked($event)"></app-exercises>
+      </div>
+    </div>
+
+    <div class="bottom_exercisechoosen">
+        <div id="workoutplan">
+            <table class="table table-striped table-dark">
+              <tbody>
+                <tr *ngFor="let exercise of _addedExercises">
+                  <td> {{exercise.name}} </td>
+                  <td><button (click)="removeFromList(exercise.name)"> Remove </button></td>
+                </tr>
+              </tbody>
+            </table>
+             <button *ngIf="_addedExercises.length > 0" (click)="formatWorkout()"> Submit</button>
+        </div>
+        
+    </div>
+    
   </div>
-</div>
-<div class="right">
-  <div id="workoutplan">
-    <table class="table table-striped table-dark">
-      <tbody>
-        <tr *ngFor="let exercise of _addedExercises">
-          <td> {{exercise.name}} </td>
-          <td><button (click)="removeFromList(exercise.name)"> Remove </button></td>
-        </tr>
-      </tbody>
-    </table>
-    <button *ngIf="_addedExercises.length > 0" (click)="formatWorkout()"> Submit</button>
+
+  
+  <div class="left">
+    <div id="exerciselist">
+      <app-exercises  [listOfExercises]="_muscle" (myEvent)="invoked($event)"></app-exercises>
+    </div>
+  </div>
+  <div class="right">
+    <div id="workoutplan">
+      <table class="table table-striped table-dark">
+        <tbody>
+          <tr *ngFor="let exercise of _addedExercises">
+            <td> {{exercise.name}} </td>
+            <td><button (click)="removeFromList(exercise.name)"> Remove </button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button *ngIf="_addedExercises.length > 0" (click)="formatWorkout()"> Submit</button>
+    </div>
   </div>
 </div>

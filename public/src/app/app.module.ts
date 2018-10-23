@@ -12,7 +12,7 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CreateComponent } from './create/create.component';
 import { HomeComponent } from './home/home.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateworkoutComponent } from './createworkout/createworkout.component';
 import { ExercisesComponent } from './exercises/exercises.component';
 import { UpdateprogramComponent } from './updateprogram/updateprogram.component';
@@ -38,7 +38,8 @@ import { OnerepComponent } from './onerep/onerep.component';
     HttpClientModule,
     FormsModule,
     NgbModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbCollapseModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
